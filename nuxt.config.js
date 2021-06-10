@@ -29,8 +29,8 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
-  ],
+    // '@nuxtjs/vuetify'
+    ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -40,6 +40,7 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    '@nuxtjs/vuetify'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
