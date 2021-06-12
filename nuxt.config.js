@@ -37,10 +37,11 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
+    ['@nuxtjs/pwa', { icon: false, manifest: false }], // without manifest & icons
     // https://go.nuxtjs.dev/content
     '@nuxt/content'
   ],
+  serverMiddleware: ['~/server-middleware/getdomain'],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

@@ -54,7 +54,7 @@
         icon
         @click.stop="rightDrawer = !rightDrawer"
       >
-        <v-icon>mdi-menu</v-icon>
+        <v-icon>mdi-menu</v-icon> Poop
       </v-btn>
     </v-app-bar>
     <v-main>
@@ -62,7 +62,7 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-navigation-drawer
+    <v-navigation-drawer   
       v-model="rightDrawer"
       :right="right"
       temporary
@@ -90,6 +90,58 @@
 
 <script>
 export default {
+
+
+
+  // let image = data.brand.logo
+  // let splitted = image.split('upload/')
+  // splitted[0] = splitted[0] + "upload/w_256,h_256/"
+  // let resized = splitted.join('')
+
+  // let link = document.createElement('link');
+  // link.rel = 'manifest';
+
+//   let myDynamicManifest = {
+//     "name": data.brand.name,
+//     "short_name": data.brand.name,
+//     "description": data.brand.name,
+//     "start_url": `https://${ data.brand.domain }`,
+//     "display": "standalone",
+//     "background_color": "#F0F0F0",
+//     "theme_color": "#555555",
+//     "icons": [{
+//       "src": resized,
+//       "sizes": "256x256",
+//       "type": "image/png"
+//     }]
+//   }
+
+//   const stringManifest = JSON.stringify(myDynamicManifest);
+
+//   const blob = new Blob([stringManifest], {type: 'application/json'});
+//   // const manifestURL = URL.createObjectURL(blob);
+//   let reader = new FileReader();
+//   reader.readAsDataURL(blob);
+//   reader.onload = function(){
+//       link.href = reader.result
+//       document.getElementsByTagName('head')[0].appendChild(link);
+//       // document.getElementById('my-manifest-placeholder').setAttribute('href', reader.result);
+//   }
+
+
+
+// } catch (error) {
+//   console.log(error)
+//   this.$swal({
+//     title: "Oops!",
+//     text: `This brand does not exist please`, 
+//     icon: "warning",
+//     button: 'Explore brands on myduuka',
+//     closeOnClickOutside: false,
+//   }).then( () => {
+//     return window.location.href = 'https://www.myduuka.com/brands'
+//   })
+// }
   data () {
     return {
       clipped: false,
@@ -111,6 +163,40 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js'
+    }
+  },
+  async fetch() {
+    console.log(this.$store.state.subdomain)
+    const subdomain = this.$store.state.subdomain
+    const domain = this.$store.state.domain
+    let mainifest = {
+      "name": 'Quidip',
+      "short_name": 'Quidip',
+      "description": 'Quidip',
+      "start_url": `https://${ subdomain + domain }`,
+      "display": "standalone",
+      "background_color": "#F0F0F0",
+      "theme_color": "#555555",
+      // "icons": [{
+      //   "src": resized,
+      //   "sizes": "256x256",
+      //   "type": "image/png"
+      // }]
+    }
+    const stringManifest = JSON.stringify(mainifest);
+    let link = document.createElement('link');
+    link.rel = 'manifest';
+    const blob = new Blob([stringManifest], {type: 'application/json'});
+    // const manifestURL = URL.createObjectURL(blob);
+    let reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onload = function(){
+        link.href = reader.result
+        document.getElementsByTagName('head')[0].appendChild(link);
+        // document.getElementById('my-manifest-placeholder').setAttribute('href', reader.result);
+    }
+    if (!process.server) {
+      console.log('location.hostname')
     }
   }
 }
