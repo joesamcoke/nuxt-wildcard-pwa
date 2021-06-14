@@ -184,17 +184,17 @@ export default {
       // }]
     }
     const stringManifest = JSON.stringify(mainifest);
-    let link = document.createElement('link');
-    link.rel = 'manifest';
-    const blob = new Blob([stringManifest], {type: 'application/json'});
-    // const manifestURL = URL.createObjectURL(blob);
-    let reader = new FileReader();
-    reader.readAsDataURL(blob);
-    reader.onload = function(){
-        link.href = reader.result
-        document.getElementsByTagName('head')[0].appendChild(link);
-        // document.getElementById('my-manifest-placeholder').setAttribute('href', reader.result);
-    }
+    // let link = document.createElement('link');
+    // link.rel = 'manifest';
+    // const blob = new Blob([stringManifest], {type: 'application/json'});
+    // // const manifestURL = URL.createObjectURL(blob);
+    // let reader = new FileReader();
+    // reader.readAsDataURL(blob);
+    // reader.onload = function(){
+    //     link.href = reader.result
+    //     document.getElementsByTagName('head')[0].appendChild(link);
+    //     // document.getElementById('my-manifest-placeholder').setAttribute('href', reader.result);
+    // }
     if (!process.server) {
       console.log('location.hostname')
     }
