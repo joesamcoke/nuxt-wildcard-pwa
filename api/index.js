@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 export default {
   path: '/api/manifest.json',
   handler(req, res) {
-    // console.log('manifest')
+    console.log(req)
     const manifest = {
       "name": "dynamic/wildcard subdomains",
       "short_name": "dynamic/wildcard subdomains",
