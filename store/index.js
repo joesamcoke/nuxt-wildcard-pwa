@@ -1,16 +1,13 @@
 export const state = () => ({
-    subdomain: null,
-    domain: null
+    url: null
   })
   
   export const mutations = {
-    set_subdomain(state, subdomain, domain) {
-      state.subdomain = subdomain
-      state.domain = domain
+    set_subdomain(state, url) {
+      state.url = url
     },
     remove_subdomain(state) {
-      state.subdomain = null
-      state.domain = null
+      state.url = null
     }
   }
   export const actions = {
@@ -20,13 +17,18 @@ export const state = () => ({
       const domainParts = domain.split('.')
       let subdomain
       let rootdomain
+      let url
       if (domainParts.length > 2) {
-        subdomain = domainParts[0]
-        rootdomain = domainParts[1] + domainParts[2]
+        url = {
+          subdomain: domainParts[0],
+          rootdomain: domainParts[1] + '.' + domainParts[2]
+        }
       } else {
-        subdomain = null
-        rootdomain = null
+        url = {
+          subdomain: null,
+          rootdomain: null
+        }
       }
-      commit('set_subdomain', subdomain, rootdomain)
+      commit('set_subdomain', url)
     }
 }

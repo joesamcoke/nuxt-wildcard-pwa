@@ -166,24 +166,24 @@ export default {
     }
   },
   async fetch() {
-    console.log(this.$store.state.subdomain)
-    const subdomain = this.$store.state.subdomain
-    const domain = this.$store.state.domain
-    let mainifest = {
-      "name": 'Quidip',
-      "short_name": 'Quidip',
-      "description": 'Quidip',
-      "start_url": `https://${ subdomain + domain }`,
-      "display": "standalone",
-      "background_color": "#F0F0F0",
-      "theme_color": "#555555",
+    // console.log('fetch : ' + this.$store.state.domain)
+    // const subdomain = this.$store.state.subdomain
+    // const domain = this.$store.state.domain
+    // let mainifest = {
+    //   "name": 'Quidip',
+    //   "short_name": 'Quidip',
+    //   "description": 'Quidip',
+    //   "start_url": `https://${ subdomain + domain }`,
+    //   "display": "standalone",
+    //   "background_color": "#F0F0F0",
+    //   "theme_color": "#555555",
       // "icons": [{
       //   "src": resized,
       //   "sizes": "256x256",
       //   "type": "image/png"
       // }]
-    }
-    const stringManifest = JSON.stringify(mainifest);
+    // }
+    // const stringManifest = JSON.stringify(mainifest);
     // let link = document.createElement('link');
     // link.rel = 'manifest';
     // const blob = new Blob([stringManifest], {type: 'application/json'});
@@ -195,9 +195,9 @@ export default {
     //     document.getElementsByTagName('head')[0].appendChild(link);
     //     // document.getElementById('my-manifest-placeholder').setAttribute('href', reader.result);
     // }
-    if (!process.server) {
-      console.log('location.hostname')
-    }
+    // if (!process.server) {
+    //   console.log('location.hostname')
+    // }
   }
 }
 </script>

@@ -14,7 +14,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  router: {
+    middleware: 'manifest'
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
@@ -37,8 +39,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    ['@nuxtjs/pwa'], // without manifest & icons
-    // https://go.nuxtjs.dev/content
+    ['@nuxtjs/pwa', { icon: false, manifest: false }], // without manifest & icons
+    // '@nuxtjs/pwa', // without manifest & iconsuxtjs.dev/content
     '@nuxt/content'
   ],
   serverMiddleware: ['~/api/index'],

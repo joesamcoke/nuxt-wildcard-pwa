@@ -1,15 +1,9 @@
-// import vuex from 'vuex'
-// import $store from '../store'
-// const express = require('express')
-// const app = express()
-// express.json()
-import {store} from '../store'
+const mongoose = require("mongoose");
 
 export default {
-  path: '/manifest.json',
+  path: '/api/manifest.json',
   handler(req, res) {
-    // app.use(bodyParser.json())
-    console.log(store)
+    // console.log('manifest')
     const manifest = {
       "name": "dynamic/wildcard subdomains",
       "short_name": "dynamic/wildcard subdomains",
