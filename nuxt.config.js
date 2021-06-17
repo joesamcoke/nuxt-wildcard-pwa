@@ -28,7 +28,8 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-
+    // https://go.nuxtjs.dev/tailwindcss
+    '@nuxtjs/tailwindcss'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -38,9 +39,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     ['@nuxtjs/pwa', { icon: false, manifest: false }], // without manifest & icons
     // '@nuxtjs/pwa', // without manifest & iconsuxtjs.dev/content
-    '@nuxt/content',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxt/content'
   ],
   serverMiddleware: ['~/api/index'],
 
